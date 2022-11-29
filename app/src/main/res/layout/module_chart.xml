@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="14dp"
+    android:layout_marginEnd="14dp">
+
+    <TextView
+        style="@style/CoinBitText.Huge"
+        android:id="@+id/txt_chart_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="$40.90"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:textColor="@color/tertiaryTextColor"
+        style="@style/CoinBitText.Body"
+        android:id="@+id/txt_chart_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="▲"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_chart_price" />
+    <TextView
+        android:textStyle="bold"
+        android:textColor="@color/tertiaryTextColor"
+        style="@style/CoinBitText.Body"
+        android:id="@+id/txt_chart_change2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+8.1%"
+        app:layout_constraintStart_toEndOf="@+id/txt_chart_change1"
+        app:layout_constraintTop_toTopOf="@+id/txt_chart_change1" />
+    <TextView
+        android:layout_marginStart="4dp"
+        android:paddingEnd="12dp"
+        style="@style/CoinBitText.BodyTertiary"
+        android:id="@+id/txt_chart_change1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-$0.04"
+        app:layout_constraintStart_toEndOf="@+id/txt_chart_arrow"
+        app:layout_constraintTop_toTopOf="@+id/txt_chart_arrow" />
+    <TextView
+        android:id="@+id/txt_chart_error"
+        android:visibility="gone"
+        style="@style/CoinBitText.Body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Some Error"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/sparkView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sparkView" />
+
+    <com.robinhood.spark.SparkView
+        style="@style/MySparkViewStyle"
+        android:id="@+id/sparkView"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_chart_arrow"
+        app:spark_animateChanges="true"
+        app:spark_lineColor="?attr/colorPrimary"
+        app:spark_scrubEnabled="true" />
+
+    <RadioGroup
+        android:id="@+id/radio_group_chart"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:weightSum="7"
+        app:layout_constraintTop_toBottomOf="@+id/sparkView">
+
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_12h"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_1h"
+            android:button="@null"
+            android:checked="true"/>
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_1d"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_1day"
+            android:button="@null" />
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_1w"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_1week"
+            android:button="@null" />
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_1m"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_1month"
+            android:button="@null" />
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_3m"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_3month"
+            android:button="@null" />
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_1y"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_1year"
+            android:button="@null" />
+        <RadioButton
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:id="@+id/rdb_all"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/range_radio_btn_selector_background"
+            android:textColor="@drawable/range_radio_btn_selector"
+            android:text="@string/period_all"
+            android:button="@null" />
+
+
+
+    </RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
